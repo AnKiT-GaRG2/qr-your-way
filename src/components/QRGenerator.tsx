@@ -70,7 +70,7 @@ export const QRGenerator = () => {
   const qrInstance = useRef<QRCodeStyling | null>(null);
 
   const [qrType, setQrType] = useState<QRType>("url");
-  const [url, setUrl] = useState("https://lovable.dev");
+  const [url, setUrl] = useState("https://example.com");
   const [text, setText] = useState("Hello from QR Forge ✨");
   const [email, setEmail] = useState({ to: "", subject: "", body: "" });
   const [phone, setPhone] = useState("");
@@ -135,7 +135,7 @@ export const QRGenerator = () => {
         crossOrigin: "anonymous",
         margin: 6,
         imageSize: logoSize,
-        hideBackgroundDots: true,
+        hideBackgroundDots: false,
       },
       dotsOptions: useGradient
         ? {
