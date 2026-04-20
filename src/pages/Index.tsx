@@ -1,5 +1,5 @@
 import { QRGenerator } from "@/components/QRGenerator";
-import { QrCode, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const Index = () => {
   return (
@@ -7,8 +7,12 @@ const Index = () => {
       <header className="border-b border-border/40 backdrop-blur-md bg-background/60 sticky top-0 z-10">
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-elegant">
-              <QrCode className="w-5 h-5 text-primary-foreground" />
+            <div className="w-9 h-9 rounded-xl overflow-hidden shadow-elegant bg-background border border-border/60">
+              <img
+                src="/QR_logo1.png"
+                alt="QR Forge logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="font-display font-bold text-lg tracking-tight">
               QR Forge

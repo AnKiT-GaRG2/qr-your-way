@@ -65,6 +65,8 @@ const presets = [
   { name: "Rose", fg: "#E11D48", bg: "#FFF1F2" },
 ];
 
+const DEFAULT_LOGO = "/QR_logo1.png";
+
 export const QRGenerator = () => {
   const ref = useRef<HTMLDivElement>(null);
   const qrInstance = useRef<QRCodeStyling | null>(null);
@@ -82,7 +84,7 @@ export const QRGenerator = () => {
     hidden: false,
   });
 
-  const [logo, setLogo] = useState<string>("");
+  const [logo, setLogo] = useState<string>(DEFAULT_LOGO);
   const [size, setSize] = useState(320);
   const [fgColor, setFgColor] = useState("#0F172A");
   const [bgColor, setBgColor] = useState("#FFFFFF");
@@ -388,7 +390,9 @@ export const QRGenerator = () => {
             <label className="flex-1 cursor-pointer">
               <div className="border-2 border-dashed border-border hover:border-primary/60 hover:bg-primary/5 transition-all rounded-xl p-4 text-center">
                 <p className="text-sm text-muted-foreground">
-                  {logo ? "Replace logo" : "Click to upload PNG, JPG or SVG (max 2MB)"}
+                  {logo === DEFAULT_LOGO
+                    ? "Default logo applied • Click to replace"
+                    : "Replace logo"}
                 </p>
               </div>
               <input
@@ -402,9 +406,9 @@ export const QRGenerator = () => {
               <Button
                 variant="outline"
                 size="icon"
-                onClick={() => setLogo("")}
+                onClick={() => setLogo(DEFAULT_LOGO)}
                 className="h-14 w-14 shrink-0"
-                aria-label="Remove logo"
+                aria-label="Reset logo"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
