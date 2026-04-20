@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background bg-mesh">
       <header className="border-b border-border/40 backdrop-blur-md bg-background/60 sticky top-0 z-10">
-        <div className="container flex items-center justify-between h-16">
+        <div className="container px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-xl overflow-hidden shadow-elegant bg-background border border-border/60">
               <img
@@ -25,13 +25,13 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="container py-10 md:py-16">
-        <section className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+      <main className="container px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-16">
+        <section className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Custom QR codes in seconds
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-5">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-5">
             Create stunning QR codes
             <br />
             <span className="text-gradient">with your logo</span>
@@ -44,7 +44,7 @@ const Index = () => {
         <QRGenerator />
 
         <footer className="mt-20 pt-8 border-t border-border/40 text-center text-xs text-muted-foreground">
-          Built with ❤️ — Scan responsibly.
+          Build by ANKIT
         </footer>
       </main>
     </div>

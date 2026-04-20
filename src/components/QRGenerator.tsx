@@ -221,27 +221,27 @@ export const QRGenerator = () => {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_420px]">
+    <div className="grid gap-5 sm:gap-6 lg:gap-8 lg:grid-cols-[1fr_420px]">
       {/* Left — Inputs */}
-      <Card className="p-6 md:p-8 shadow-soft border-border/60 animate-fade-in">
+      <Card className="p-4 sm:p-6 md:p-8 shadow-soft border-border/60 animate-fade-in">
         <Tabs value={qrType} onValueChange={(v) => setQrType(v as QRType)}>
           <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full h-auto bg-secondary/60 p-1 gap-1">
-            <TabsTrigger value="url" className="gap-1.5 py-2">
+            <TabsTrigger value="url" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <LinkIcon className="w-3.5 h-3.5" /> URL
             </TabsTrigger>
-            <TabsTrigger value="text" className="gap-1.5 py-2">
+            <TabsTrigger value="text" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <Type className="w-3.5 h-3.5" /> Text
             </TabsTrigger>
-            <TabsTrigger value="email" className="gap-1.5 py-2">
+            <TabsTrigger value="email" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <Mail className="w-3.5 h-3.5" /> Email
             </TabsTrigger>
-            <TabsTrigger value="phone" className="gap-1.5 py-2">
+            <TabsTrigger value="phone" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <Phone className="w-3.5 h-3.5" /> Phone
             </TabsTrigger>
-            <TabsTrigger value="sms" className="gap-1.5 py-2">
+            <TabsTrigger value="sms" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <MessageSquare className="w-3.5 h-3.5" /> SMS
             </TabsTrigger>
-            <TabsTrigger value="wifi" className="gap-1.5 py-2">
+            <TabsTrigger value="wifi" className="gap-1.5 py-2 px-2 text-xs sm:text-sm">
               <Wifi className="w-3.5 h-3.5" /> WiFi
             </TabsTrigger>
           </TabsList>
@@ -386,7 +386,7 @@ export const QRGenerator = () => {
             <ImageIcon className="w-4 h-4 text-primary" />
             <h3 className="font-display font-semibold">Brand logo</h3>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <label className="flex-1 cursor-pointer">
               <div className="border-2 border-dashed border-border hover:border-primary/60 hover:bg-primary/5 transition-all rounded-xl p-4 text-center">
                 <p className="text-sm text-muted-foreground">
@@ -407,7 +407,7 @@ export const QRGenerator = () => {
                 variant="outline"
                 size="icon"
                 onClick={() => setLogo(DEFAULT_LOGO)}
-                className="h-14 w-14 shrink-0"
+                className="h-12 w-full sm:h-14 sm:w-14 shrink-0"
                 aria-label="Reset logo"
               >
                 <Trash2 className="w-4 h-4" />
@@ -501,7 +501,7 @@ export const QRGenerator = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <ColorField label="Foreground" value={fgColor} onChange={setFgColor} />
             <ColorField label="Background" value={bgColor} onChange={setBgColor} />
           </div>
@@ -552,7 +552,7 @@ export const QRGenerator = () => {
 
       {/* Right — Preview */}
       <div className="lg:sticky lg:top-6 self-start space-y-4 animate-fade-in">
-        <Card className="p-6 shadow-elegant border-border/60 bg-gradient-to-br from-card to-secondary/40">
+        <Card className="p-4 sm:p-6 shadow-elegant border-border/60 bg-gradient-to-br from-card to-secondary/40">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-primary" />
@@ -560,11 +560,14 @@ export const QRGenerator = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center rounded-2xl bg-background p-6 min-h-[360px] shadow-soft">
-            <div ref={ref} className="animate-fade-in" />
+          <div className="flex items-center justify-center rounded-2xl bg-background p-3 sm:p-6 min-h-[260px] sm:min-h-[360px] shadow-soft overflow-hidden">
+            <div
+              ref={ref}
+              className="animate-fade-in max-w-full [&>canvas]:h-auto [&>canvas]:max-w-full [&>svg]:h-auto [&>svg]:max-w-full"
+            />
           </div>
 
-          <div className="mt-5 grid grid-cols-[1fr_auto] gap-2">
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
             <Select
               value={exportFormat}
               onValueChange={(v) => setExportFormat(v as typeof exportFormat)}
@@ -582,7 +585,7 @@ export const QRGenerator = () => {
             <Button
               onClick={handleDownload}
               size="lg"
-              className="h-12 bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-elegant gap-2"
+              className="h-12 w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-elegant gap-2"
             >
               <Download className="w-4 h-4" /> Download
             </Button>
